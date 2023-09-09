@@ -1,0 +1,93 @@
+Principle : Program to an interface, not an implementation
+
+Additional meaning for the principle : Program to an interface actually means
+Program to a supertype. It emphasizes writing code that depends on abstractions
+(interfaces or supertypes) rather than concrete implementations (subtypes or
+specific classes).
+
+Programming to an implementation vs Programming to an interface/supertype
+
+abstract class Animal
+    makeSound()
+
+class Dog implements Animal
+    @Override
+    makeSound() {
+        bark();
+    }
+
+    bark() {
+        // bark sound
+    }
+
+class Cat implements Animal
+    @Override
+    makeSound() {
+        meow();
+    }
+
+    meow() {
+        // meow sound
+    }
+
+Implementation - forces us to code to a concrete implementation
+such as implementing dog methods only.
+    Dog d = new Dog();
+    d.bark()
+
+Interface/Supertype - we can use the animal reference
+polymorphically.
+Common question in mind: Why cannot we just use the implementation
+method when they are just the same given the fact that we can still
+call methods from it?
+https://chat.openai.com/share/40929d30-ff40-463b-a958-5162286d73e4
+    Animal animal = new Dog();
+    animal.makeSound();
+
+
+Duck logic problem
+
+Using abstract class Duck, interface FlyBehavior and QuackBehavior, and
+implementing different types of fly and quack behavior
+    [1] Code reusability
+        Other types of objects can reuse our fly and quack behaviors because
+        these behaviors are no longer hidden away or restricted in our Duck classes.
+    [2] Code flexibility and extensibility
+        We can add new behaviors without modifying any of our existing behavior
+        classes or touching any of the Duck classes that use flying behaviors
+
+interface FlyBehavior
+    fly()
+
+class FlyWithWings implements FlyBehavior
+    @Override
+    fly() {
+        // implements duck flying
+    }
+
+class FlyNoWay implements FlyBehavior
+    @Override
+    fly() {
+        // do nothing - can't fly
+    }
+
+interface QuackBehavior
+    quack()
+
+class Quack implements Quack
+    @Override
+    quack() {
+        // implements duck quacking
+    }
+
+class Squeak implements Quack
+    @Override
+    quack() {
+        // rubber duck squeaking
+    }
+
+class MuteQuack implements Quack
+    @Override
+    quack() {
+        // do nothing - can't quack
+    }

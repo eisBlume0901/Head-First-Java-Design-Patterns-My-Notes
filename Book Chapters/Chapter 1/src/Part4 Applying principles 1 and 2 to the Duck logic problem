@@ -1,0 +1,69 @@
+Integrating duck behaviors to the abstract class Duck
+
+interface FlyBehavior
+    fly()
+
+class FlyWithWings implements FlyBehavior
+    @Override
+    fly() {
+        // implements duck flying
+    }
+
+class FlyNoWay implements FlyBehavior
+    @Override
+    fly() {
+        // do nothing - can't fly
+    }
+
+interface QuackBehavior
+    quack()
+
+class Quack implements Quack
+    @Override
+    quack() {
+        // implements duck quacking
+    }
+
+class Squeak implements Quack
+    @Override
+    quack() {
+        // rubber duck squeaking
+    }
+
+class MuteQuack implements Quack
+    @Override
+    quack() {
+        // do nothing - can't quack
+    }
+
+abstract class Duck
+    FlyBehavior flyBehavior     // Each duck has a reference to something
+    QuackBehavior quackBehavior // that implements the Quack and FlyBehavior
+                                // interface
+
+    performQuack() {            // quack name method is already used in QuackBehavior
+        quackBehavior.quack();  // interface
+    }                           // To perform the quack, a Duck class just asks
+                                // the object that is referenced by quackBehavior.
+                                // We do not care what kind of object or type of Duck
+                                // is, all we care about is that it knows how to quack!
+    swim()
+    display()
+    performFly() {
+        flyBehavior.fly();
+    }
+
+    // other duck-like methods
+
+class MallardDuck extends Duck
+    // Constructor, must instantiate the interfaces through implementation
+    // Why the program is an implementation? There are more patterns to be applied
+    MallardDuck() {
+        // Polymorphism
+        quackBehavior = new Quack();      // It uses Quack (quack quack sound) as its QuackBehavior type
+        flyBehavior = new FlyWithWings(); // It uses FlyWithWings as its FlyBehavior type
+    }
+
+    display() {
+        System.out.println("I'm a real Mallard duck");
+    }

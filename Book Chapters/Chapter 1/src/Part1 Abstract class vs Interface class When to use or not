@@ -1,0 +1,53 @@
+Duck logic problem
+
+Problems
+Using abstract class Duck only:
+    [1] Code is duplicated across subclasses
+        The methods quack() and fly() needs to override in each of its subclass.
+        Imagine if there are thousand types of ducks then we have to override
+        each of them.
+Using abstract class Duck and interfaces Quackable, Flyable:
+    Since we implemented a specific interface for quack() and fly(), we do not
+    need to override each of its subclasses.
+    [1] Code reuse is destroyed
+        Java interfaces have no implementation code, so no code reuse. Whenever there
+        is a need to modify a behavior, the developers are forced to track down and
+        change it in all the different subclasses where that behavior is defined.
+            - lots of bugs
+            - maintenance nightmare
+
+abstract class Duck
+    swim()
+    display()
+    // quack()
+    // fly() - not all ducks fly like rubber ducks
+
+interface Quackable
+    quack()
+
+interface Flyable
+    fly()
+
+class MallardDuck extends Duck implements Quackable, Flyable
+    display()
+
+    @Override
+    fly()
+
+    @Override
+    quack()
+
+class RedheadDuck extends Duck implements Quackable, Flyable
+    display()
+
+    @Override
+    fly()
+
+    @Override
+    quack()
+
+class RubberDuck extends Duck implements Quackable
+    display()
+
+    @Override
+    quack()

@@ -1,0 +1,21 @@
+Principle : Identify the aspects of your application that vary and
+separate them from what stays the same - pg. 9
+
+Another way of thinking of this principle : Take the parts that vary
+and encapsulate them , so that later you can alter or extend the parts
+that vary without affecting those that don't. - pg. 9
+
+Duck logic problem
+abstract class Duck
+    display()
+    swim()
+    // fly()
+    // quack()
+
+fly() / interface Quackable -> class QuackBehavior
+quack() / interface Flyable -> class FlyBehavior
+
+Explanation:
+    fly() and quack() vary across ducks
+        Example: quack() -> squeak()
+
