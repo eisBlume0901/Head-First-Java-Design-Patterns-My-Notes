@@ -1,0 +1,28 @@
+When two objects are loosely coupled, they can interact, but they have
+very little knowledge of each other.
+
+Benefits:
+- allow us to build flexible OO systems that can handle change because they
+minimize the interdependency between objects.
+
+In relation to Observer pattern,
+
+Subject knows about an observer by implementing the Observer interface
+- It does not need to know the concrete class of the observer
+
+Subject can add new or remove existing observers any time
+- Subject depends on the list of objects that implements the Observer interface
+- Subject can replace any observer at runtime with another observer
+
+Subject does not need any modification when adding new types of observers
+- Subject does not need to make any changes to accommodate the new class type
+since it just implement the Observer interface in the new class and register
+as an observer
+
+Subject or observers can be reused independently of each other
+- Subject or an observer can be reuse since these two aren't tightly coupled
+
+Subject or observers if they have changes, does not affect each other
+- Subject and observer are loosely coupled so we are free to make changes to either,
+as long as the object still meet their obligations to implement the Subject or
+Observer interfaces

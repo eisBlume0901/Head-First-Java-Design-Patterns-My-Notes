@@ -1,0 +1,48 @@
+public class Weather Data
+{
+    // instance variable declarations
+    private float temp;
+    private float humidity;
+    private float pressure;
+
+    // getters
+
+    public float getTemperature()
+    {
+        return temp;
+    }
+
+    public float getHumidity()
+    {
+        return humidity;
+    }
+
+    public float getPressure()
+    {
+        return pressure;
+    }
+
+    public void measurementsChanged()
+    {
+        float temp = getTemperature();
+        float humidity = getHumidity();
+        float pressure = getPressure();
+    }
+
+    /* Problem:
+    By coding to concrete implementations (Display), we have no way to add
+    or remove other display elements without making changes to the code.
+    Layman's term:
+        Hardcoded
+    */
+    currentConditionsDisplay.update(temp, humidity, pressure);
+    statisticsDisplay.update(temp, humidity, pressure);
+    forecastDisplay.update(temp, humidity, pressure);
+
+    /* Common interface is Display since they all have an update() method
+    that takes the temp, humidity, and pressure values.
+
+    Problem: (temp, humidity, pressure)
+    Have to encapsulate them since they vary too much
+    */
+}

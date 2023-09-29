@@ -1,0 +1,9 @@
+The Observer Pattern defines a one(subject)-to-many(observers) dependency between objects so that
+when one object changes state, all of its dependents are notified and updated
+automatically.
+
+- allows many objects to control the same data
+Best examples in-relation to this pattern:
+1. Subscription
+2. Job Hunting
+
