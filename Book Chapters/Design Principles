@@ -1,4 +1,18 @@
+Basics
+Abstraction, Encapsulation, Polymorphism, Inheritance
+Principles
 1. Identify the aspects of your application that vary and separate them
-from what stays the same. - Chapter 1, File 2
-2. Program to an interface, not an implementation - Chapter 1, File 3
-3. Favor composition over inheritance - Chapter 1,
+from what stays the same. - Chapter 1, Part2
+2. Program to an interface, not an implementation - Chapter 1, Part3
+3. Favor composition over inheritance - Chapter 1, Part6
+Pattern
+1, 2, and 3 is called STRATEGY Pattern
+- defines a family of algorithms, encapsulates each one, and makes them
+interchangeable. Strategy lets the algorithm vary independently from client
+that uses it. - Chapter 1
+Pattern
+OBSERVER pattern defines a one-to-many dependency between objects so that
+when one object changes state, all of its dependents are notified and updated
+automatically. - Chapter 2
+Principle
+4. Strive for loosely coupled designs between objects that interact - Chapter 2, Part4
