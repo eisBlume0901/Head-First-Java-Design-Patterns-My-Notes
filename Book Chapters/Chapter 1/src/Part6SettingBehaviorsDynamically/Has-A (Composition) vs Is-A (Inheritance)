@@ -1,0 +1,22 @@
+IS-A - inheritance
+
+class Apple extends Fruit {
+}
+An apple is a fruit.
+
+HAS-A - composition
+class Room {
+    Table table = new Table();
+}
+
+A room has a table.
+
+IS-A vs HAS-A
+HAS-A has dynamic (runtime) binding
+IS-A has a static (compile time) binding
+
+Tips:
+Reuse code and two are not of the same kind? Use composition
+Has a natural relationship? Use inheritance
+- From the word inherit means the attributes of the parent is inherited by
+its child
