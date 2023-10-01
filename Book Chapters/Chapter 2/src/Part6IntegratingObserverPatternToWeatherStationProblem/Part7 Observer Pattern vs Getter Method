@@ -1,0 +1,16 @@
+Observer pattern
+- typically used in scenarios where multiple objects or components
+need to be notified when the state of another object changes
+- Example:
+    GUI components reacting to user actions
+    Monitoring systems responding to sensor data changes
+    Implementing publisher-subscriber systems
+Getter Methods
+- use to expose the internal state of an object to other parts
+of the program, typically for reading purposes
+
+
+Observer - multiple objects need to respond to changes in
+another object's state
+Getter - simply need to retrieve the taste of an object and
+do not require other objects to be notified of changes

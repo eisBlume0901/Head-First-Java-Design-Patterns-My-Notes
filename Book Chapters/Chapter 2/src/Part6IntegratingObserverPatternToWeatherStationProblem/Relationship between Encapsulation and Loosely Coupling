@@ -1,0 +1,15 @@
+Encapsulating a class (instead of implementing or extending it) reduce
+coupling between classes.
+
+When a class is encapsulated, it typically exposes only a limited
+set of methods or operations that other classes can use. This limited
+and well-defined interface promotes loose coupling because it reduces
+the reliance on the inner workings of the encapsulated class.
+
+Proper use of encapsulation helps achieve loose coupling and modularity in
+application designs, since objects and packages can be replaced with
+alternative implementations so long as the same interface is maintained.
+
+https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles
+
+
