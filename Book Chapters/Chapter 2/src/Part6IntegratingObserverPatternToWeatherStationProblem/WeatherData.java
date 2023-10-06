@@ -2,6 +2,10 @@ package Part6IntegratingObserverPatternToWeatherStationProblem;
 import java.util.*;
 public class WeatherData implements Subject
 {
+    // Weather Data breaks the Single Chain Responsibility Principle
+    // because it has two jobs
+    // Recommended that the Subject should be an Abstract (Template Method)
+    // since we just repeated the methods itself and just added new variation
     private List<Observer> observers;
     // To hold the Observers and create it in the constructor
     // The WeatherData Subject/Observable has many observers

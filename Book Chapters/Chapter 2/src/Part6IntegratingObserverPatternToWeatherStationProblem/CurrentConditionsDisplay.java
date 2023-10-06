@@ -5,8 +5,9 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement
     private float temperature;
     private float humidity;
     private WeatherData weatherData; // Encapsulating Weather Data to reduce coupling
+    // CurrentConditionsDisplay has a relationship with WeatherData
 
-    public CurrentConditionsDisplay(WeatherData weatherData)
+    public CurrentConditionsDisplay(WeatherData weatherData) // We are coupling them
     {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
@@ -39,6 +40,7 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement
     }
     @Override
     public void update(float temperature, float humidity, float pressure) {
+        // Means that it does not need to rely to the WeatherData
         this.temperature = temperature;
         this.humidity = humidity;
         display();

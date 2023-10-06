@@ -7,14 +7,18 @@ public class StatisticsDisplay implements Observer, DisplayElement
     private float tempSum = 0.0f;
     private int numReadings;
     private WeatherData weatherData;
+    // StatisticsDisplay has a relationship with WeatherData
 
-    public StatisticsDisplay(WeatherData weatherData)
+
+    public StatisticsDisplay(WeatherData weatherData) // We are coupling
     {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
     @Override
     public void update(float temperature, float humidity, float pressure) {
+        // Means that it does not need to rely to the WeatherData
+
         tempSum += temperature;
         numReadings++;
 

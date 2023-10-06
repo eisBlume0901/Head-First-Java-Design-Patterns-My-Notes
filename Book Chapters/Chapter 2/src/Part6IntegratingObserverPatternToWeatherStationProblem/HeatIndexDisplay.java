@@ -4,13 +4,17 @@ public class HeatIndexDisplay implements Observer, DisplayElement
 {
     float heatIndex = 0.0f;
     private WeatherData weatherData;
-    public HeatIndexDisplay(WeatherData weatherData)
+    // HeatIndexDisplay has a relationship with WeatherData
+
+    public HeatIndexDisplay(WeatherData weatherData) // We are coupling
     {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
     @Override
     public void update(float t, float rh, float pressure) {
+        // Means that it does not need to rely to the WeatherData
+
         heatIndex = computeHeatIndex(t, rh);
         display();
     }

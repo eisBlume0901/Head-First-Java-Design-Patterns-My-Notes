@@ -5,8 +5,9 @@ public class ForecastDisplay implements Observer, DisplayElement
     private float currentPressure = 29.92f;
     private float lastPressure;
     private WeatherData weatherData;
+    // ForecastDisplay has a relationship with WeatherData
 
-    public ForecastDisplay(WeatherData weatherData)
+    public ForecastDisplay(WeatherData weatherData) // We are coupling this
     {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
@@ -14,6 +15,8 @@ public class ForecastDisplay implements Observer, DisplayElement
 
     @Override
     public void update(float temperature, float humidity, float pressure) {
+        // Means that it does not need to rely to the WeatherData
+
         lastPressure = currentPressure;
         currentPressure = pressure;
         display();
