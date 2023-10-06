@@ -42,6 +42,7 @@ public class SwingObserverExample
     }
 }
 
+// Remove the following classes when you are not using Lambda
 class AngelListener implements ActionListener
 {
     @Override

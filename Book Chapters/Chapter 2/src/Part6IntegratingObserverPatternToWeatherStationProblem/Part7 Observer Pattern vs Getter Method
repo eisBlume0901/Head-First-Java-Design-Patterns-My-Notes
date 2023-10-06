@@ -11,6 +11,6 @@ of the program, typically for reading purposes
 
 
 Observer - multiple objects need to respond to changes in
-another object's state
+another object's state.
 Getter - simply need to retrieve the taste of an object and
 do not require other objects to be notified of changes

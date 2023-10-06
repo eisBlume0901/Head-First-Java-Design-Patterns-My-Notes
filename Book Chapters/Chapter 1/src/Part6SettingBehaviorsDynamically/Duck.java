@@ -40,6 +40,7 @@ public abstract class Duck
 
 class MallardDuck extends Duck
 {
+    // Program to an interface, not an implementation
     public MallardDuck()
     {
         quackBehavior = new Quack();

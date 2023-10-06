@@ -1,8 +1,17 @@
 The Observer Pattern defines a one(subject)-to-many(observers) dependency between objects so that
 when one object changes state, all of its dependents are notified and updated
 automatically.
-
 - allows many objects to control the same data
+- Subjects update Observers using a common interface
+- Observers of any concrete type can participate in the pattern as long as
+they implement the Observer interface
+- Observers are loosely coupled in that the Subject knows nothing about them,
+other than that they implement the Observer interface
+- Can push or pull data from the Subject when using the pattern
+- Swing makes heavy use of Observer pattern, as do many GUI frameworks
+- It is related to the Publish/Subscribe Pattern (however it is more complex as
+it uses multiple Subjects and multiple message types)
+
 Best examples in-relation to this pattern:
 1. Subscription
 2. Job Hunting
