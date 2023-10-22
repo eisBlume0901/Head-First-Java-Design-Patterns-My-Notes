@@ -1,0 +1,65 @@
+class Beverage {
+    String description;
+    boolean milk;
+    boolean soy;
+    boolean mocha;
+    boolean whip;
+
+    String getDescription();
+    abstract void cost();
+
+    hasMilk();
+    setMilk();
+    hasSoy();
+    setSoy();
+    hasMocha();
+    setMocha();
+    hasWhip();
+    setWhip();
+}
+
+class HouseBlend extends Beverage {
+    @Override
+    cost() {
+        // If there is a milk, then the cost would be updated
+    }
+}
+
+class DarkRoast extends Beverage {
+    @Override
+    cost() {
+        // If there is a soy, then the cost would be updated
+    }
+}
+
+class Decaf extends Beverage {
+    @Override
+    cost() {
+        // If there is a milk, then the cost would be updated
+    }
+}
+
+class Expresso extends Beverage {
+    @Override
+    cost() {
+        // If there is a mocha, then the cost would be updated
+    }
+}
+
+Problem:
+
+Price changes for condiments and forces alteration of code
+For example: Milk is priceA and the next day it would be priceB
+because of inflation issues.
+
+New condiments will force us to add new methods and alter the cost
+method in the superclass.
+For example: Vanilla, Honey, Caramel, Cinnamon is added
+
+Addition of new beverages and instance variables declared in the
+Beverage super class might not be appropriate.
+For example: Juice, Tea does not have whipped cream
+
+Frequency of the condiment also forces us to alter the code
+in each class.
+For example: Two pumps of mocha

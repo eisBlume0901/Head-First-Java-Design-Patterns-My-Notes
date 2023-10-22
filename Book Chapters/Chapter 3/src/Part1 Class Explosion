@@ -1,0 +1,40 @@
+class Beverage {
+    String description;
+
+    String getDescription();
+    abstract void cost();
+}
+
+class HouseBlend extends Beverage {
+
+    @Override
+    cost() {
+        // price of House Blend beverage
+    }
+}
+
+class Tea extends Beverage {
+
+    @Override
+    cost() {
+        // price of House Blend beverage
+    }
+}
+
+...
+There is a lot of different beverage since the customer
+could ask for add-on of several condiments such as steamed
+milk, soy, mocha, chocolate, and more
+
+Problem:
+
+There will be different class such as:
+HouseBlendWithSteamMilkAndMocha
+HouseBlendWithWhip
+.
+.
+.
+
+This is hard to maintain because we have to modify the price and always
+create a new class for new variation of beverage. Thus, creating a maintenance
+nightmare for developers.

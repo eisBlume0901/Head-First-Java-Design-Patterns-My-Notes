@@ -1,0 +1,12 @@
+Principle: Classes should be open for extension, but closed for maintenance
+
+Importance:
+1. Not changing the existing code in a class, reduces the change of bugs. If there
+is a bug, you can already pinpoint where it would likely be (which is commonly,
+the extended ones since we modify and added some features from its super class)
+2. Extension allows incorporation of new behavior without modifying existing code.
+
+Reminders:
+Applying Open-Closed Principle EVERYWHERE is wasteful and unnecessary, and can
+lead to complex, hard-to-understand code. So, choose the areas of code that need
+to be extended
