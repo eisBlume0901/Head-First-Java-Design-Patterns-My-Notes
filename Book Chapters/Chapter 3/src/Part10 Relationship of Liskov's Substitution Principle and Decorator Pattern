@@ -1,0 +1,10 @@
+When you’re using the Decorator Pattern, you’re adding behavior or state to your objects,
+and then you compose your objects with these decorators. The decorators have the same interface
+as the objects they decorate, which means you can use a decorated object wherever you’d use the
+original. This aligns with the Liskov Substitution Principle: you should be able to use the decorated
+object (subclass) wherever you use the original (base class).
+
+For example, let’s say we have a Coffee class and we want to add options like milk, sugar, and whipped cream.
+We could create decorator classes for each of these options that add to the cost of the coffee. Each decorator
+would have the same interface as Coffee so that it can be used anywhere Coffee is used. This is LSP in action
+within the Decorator Pattern.

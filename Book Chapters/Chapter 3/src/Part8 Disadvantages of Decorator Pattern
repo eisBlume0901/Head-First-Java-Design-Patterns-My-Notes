@@ -1,0 +1,20 @@
+1. Complexity and Overhead: As the number of decorator increases,
+managing and understanding the interactions between decorators
+can become complex.
+
+2. Order of Decorators: Managing the order of decorators can become
+challenging, especially when multiple decorators are involved
+
+3. Large Number of Small Objects: The use of small, fine-grained objects
+to implement the pattern can result in a large number of objects being
+created. This could potentially impact MEMORY USAGE and SYSTEM PERFORMANCE
+
+4. Difficulty in Removing Decorations: Removing specific decorators from
+an object can be challenging since decorators are attached dynamically
+during runtime
+
+5. Maintainability: Difficulty in identifying exact point of failure when issues
+arise, leading to potential maintenance challenges
+
+6. Potential for Overuse: Overusing Decorator Pattern when simpler alternatives
+such as inheritance may be more appropriate.

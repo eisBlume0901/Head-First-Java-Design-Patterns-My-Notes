@@ -1,0 +1,18 @@
+Inheritance is one form of extension, but not
+necessarily the best way to achieve flexibility in
+our designs
+
+Allow behavior to be extended without the need for to
+modify existing code
+
+Decorator Pattern
+- provides an alternative to subclassing for extending
+behavior
+- involves a set of decorator classes that are used
+to wrap concrete components
+- mirror the type of the components they decorate
+through inheritance (abstract) or interface
+implementation
+- change the behavior of their components by adding
+new functionality before and/or after (or even in place
+of) method calls to the component
