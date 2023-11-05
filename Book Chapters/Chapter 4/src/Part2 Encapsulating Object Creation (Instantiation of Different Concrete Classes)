@@ -1,0 +1,72 @@
+Suggested Solution 1: Separate the Object Creation out of orderPizza() method
+
+orderPizza() method only cares that it gets pizza that implements the Pizza
+interface so that it can call prepare(), bake(), cut(), and box()
+
+orderPizza() method asks the PizzaFactory to make one
+
+(Single Responsibility Principle for a Method)
+
+Suggested Solution Code 1:
+
+public class SimplePizzaFactory {
+    public Pizza createPizza(String type) {
+        Pizza pizza = null;
+
+        if (type.equals("cheese"))
+            pizza = new CheesePizza();
+        else if (type.equals("greek")
+            pizza = new GreekPizza();
+        else if (type.equals("Pepperoni"))
+            pizza = new PepperoniPizza();
+        else if (type.equals("Clam"))
+            pizza = new ClamPizza();
+        else if (type.equals("Veggie"))
+            pizza = new VeggiePizza();
+
+        return pizza;
+    }
+}
+
+createPizza() method is a method all clients will use to instantiate new objects
+
+What is the advantage?
+
+1. Factory Design Pattern is not all about pushing the problem off to another
+class object (in this case, separating the object creation of different pizzas
+to another class).
+- the createPizza(String type) can be used by orderPizza() (from PizzaShop class),
+PizzaShopMenu class to get pizzas for their current description and price, HomeDelivery class
+that handles pizzas in a different way.
+- encapsulation allows modifications when the implementation changes
+- Layman's term: code re-usability in a sense we do not need to modify if there are new Pizzas or
+we have to delete existing Pizzas, have the same object creation to other classes when they can
+just share one class to get its descriptions and methods
+
+2. Factory of a Class is static
+Static method is used because there is no need to instantiate
+an object but it has a disadvantage of not being able to subclass
+and change behavior of that method.
+
+Integration of suggested solution code 1:
+
+public class PizzaStore {
+    SimplePizzaFactory factory;
+
+    public PizzaStore(SimplePizzaFactory factory) {
+        this.factory = factory;
+    }
+
+    public Pizza orderPizza(String type) {
+        Pizza pizza;
+
+        pizza = factory.createPizza(type);
+
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+
+        return pizza;
+    }
+}
