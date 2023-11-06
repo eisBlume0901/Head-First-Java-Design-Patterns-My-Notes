@@ -12,6 +12,9 @@ else if (hunting)
 else if (inBathTub)
     duck = new RubberDuck();
 
+duck.fly();
+duck.quack();
+
 The code above has several concrete classes being instantiated,
 and the decision of which to instantiate is made at runtime
 depending on some set of conditions.
@@ -55,4 +58,6 @@ Layman's term: Instead of putting the if-else code along with the
 creation of duck, it is better to separate it to another class so
 that you would only modify the switch-case/if-else code of concrete
 classes
+
+Layman's term: Object creation should separated to prevent runtime errors
 

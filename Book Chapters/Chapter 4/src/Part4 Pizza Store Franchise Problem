@@ -1,0 +1,77 @@
+Problem: The SimplePizzaFactory has new variations depending
+on each region exists in US. For instance, Chicago's deep dish
+pizzas, New York's thin-crust pizzas, and California's cracker pizza
+
+SimplePizzaFactory simplePizzaFactory = new SimplePizzaFactory();
+PizzaStore pizzaStore = new PizzaStore(simplePizzaFactory);
+pizzaStore.orderPizza("Veggie"); // Basic veggie
+
+NYPizzaFactory nyPizzaFactory = new NYPizzaFactory();
+PizzaStore nyPizzaStore = new PizzaStore(nyPizzaFactory);
+nyPizzaStore.orderPizza("Veggie"); // Thin crust pizza
+
+ChicagoPizzaFactory chicagoPizzaFactory = new ChicagoPizzaFactory();
+PizzaStore chicagoPizzaStore = new PizzaStore(chicagoPizzaFactory);
+chicagoPizzaStore.orderPizza("Veggie"); // Deep dish veggie pizza
+
+Suggestion: More Quality Control Through Localization of Pizza-Making Activities
+and give each franchise their own regional style through abstraction of PizzaStore.
+
+public abstract class PizzaStore {
+    public Pizza orderPizza(String type) {
+    /* orderPizza(String type) does not need to know what concrete classes
+    are so it is decoupled.
+    */
+        Pizza pizza;
+
+        pizza = createPizza(type);
+
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+
+        return pizza;
+    }
+
+    protected abstract Pizza createPizza(String type);
+    /* Each regional pizza store can add new concrete pizza class of their own
+    instead of just sharing one long list of concrete pizza class which is harder
+    to maintain and prone to errors in the long run.
+
+    Each RegionalFranchisePizzaStore overrides this method and add
+    and create their own types of pizza available.
+
+    Example:
+
+    public class NYStylePizzaStore extends PizzaStore {
+
+        @Override
+        public Pizza createPizza(String type) {
+            if (type.equals("cheese"))
+                return new NYStyleCheesePizza();
+            else if (type.equals("pepperoni"))
+                return new NYStylePepperoniPizza();
+            else if (type.equals("clam"))
+                return new NYStyleClamPizza();
+            else if (type.equals("veggie"))
+                return new NYStyleVeggiePizza();
+            else
+                return null;
+        }
+    }
+
+    ChicagoStylePizzaStore
+
+    public Pizza createPizza(String type) {
+        if (type.equals("cheese"))
+            pizza = new ChicagoStyleCheesePizza();
+        else if (type.equals("pepperoni"))
+            pizza = new ChicagoStylePepperoniPizza();
+        else if (type.equals("clam"))
+            pizza = new ChicagoStyleClamPizza();
+        else if (type.equals("veggie"))
+            pizza = new ChicagoStyleVeggiePizza();
+    }
+    */
+}

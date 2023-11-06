@@ -1,0 +1,13 @@
+Factory method - handles object creation and encapsulates
+it in a subclass. This decouples the client code in the
+superclass from the object creation code in the subclass.
+
+abstract Product factoryMethod(String type)
+
+abstract - so that subclasses are counted on to handle
+object creation
+Product - returns a Product that is typically used within
+methods defined in the superclass
+factoryMethod - isolates the client (the code in the superclass,
+like orderPizza()
+

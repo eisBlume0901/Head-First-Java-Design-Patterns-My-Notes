@@ -30,23 +30,36 @@ public class SimplePizzaFactory {
 
 createPizza() method is a method all clients will use to instantiate new objects
 
+Factories handles the details of object creation.
+
 What is the advantage?
 
-1. Factory Design Pattern is not all about pushing the problem off to another
+Factory Design Pattern is not all about pushing the problem off to another
 class object (in this case, separating the object creation of different pizzas
 to another class).
-- the createPizza(String type) can be used by orderPizza() (from PizzaShop class),
-PizzaShopMenu class to get pizzas for their current description and price, HomeDelivery class
-that handles pizzas in a different way.
-- encapsulation allows modifications when the implementation changes
-- Layman's term: code re-usability in a sense we do not need to modify if there are new Pizzas or
-we have to delete existing Pizzas, have the same object creation to other classes when they can
-just share one class to get its descriptions and methods
+- the createPizza() method can be used by the PizzaShop class' orderPizza() method,
+the createPizza() method can be used by the PizzaShopMenu class to get their current description
+and price if we will put each pizza object its own description and price,
+the createPizza() method can be handled by the HomeDelivery class so that there is no
+need for duplication.
+- “Think of it like a pizza shop. When you order a pizza, you don’t have to know
+how to make each type of pizza. The pizza shop (the ‘Factory’) knows how to make
+each type of pizza and gives you the one you asked for. If the shop wants to add
+a new type of pizza, they just update their recipes (the ‘Factory’), and you can
+order the new pizza without any changes on your part. This makes it easier to manage
+and maintain the pizza shop.”
 
-2. Factory of a Class is static
-Static method is used because there is no need to instantiate
-an object but it has a disadvantage of not being able to subclass
-and change behavior of that method.
+This explanation emphasizes the benefits of the Factory Design Pattern: encapsulation
+of object creation, code reusability, and ease of maintenance. It also adheres to the
+Single Responsibility Principle, as each class (or in this case, pizza) has a single
+responsibility and is not overly complicated.
+
+Factory can also be defined as a static method.
+Difference between static Factory and non-static Factory
+
+Static - does not need to instantiate to access the method or variable within the class.
+    However, you cannot subclass and change the behavior of the the method or variable.
+Non-static - need to create an object and instantiate it to access the method
 
 Integration of suggested solution code 1:
 
@@ -60,7 +73,7 @@ public class PizzaStore {
     public Pizza orderPizza(String type) {
         Pizza pizza;
 
-        pizza = factory.createPizza(type);
+        pizza = factory.createPizza(type); // No more concrete instantiations
 
         pizza.prepare();
         pizza.bake();
