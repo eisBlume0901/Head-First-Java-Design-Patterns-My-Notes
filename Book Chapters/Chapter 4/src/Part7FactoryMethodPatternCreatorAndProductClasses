@@ -1,0 +1,6 @@
+Factory Method - encapsulates object creation by
+letting subclasses decide what objects create
+
+Encapsulation - does not equate using private keyword
+Encapsulation - protective shield that prevents the data
+from being accessed by the code outside this shield.

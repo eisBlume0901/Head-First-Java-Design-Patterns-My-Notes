@@ -108,10 +108,17 @@ class NYPizzaStore extends PizzaStore
 {
     @Override
     protected Pizza createPizza(String type) {
-        if (type.equals("cheese"))
-            return new NYStyleCheesePizza();
-        else
-            return null;
+        if (type.equals("cheese")) return new NYStyleCheesePizza();
+        else return null;
+    }
+}
+
+class ChicagoPizzaStore extends PizzaStore
+{
+    @Override
+    protected Pizza createPizza(String type) {
+        if (type.equals("cheese")) return new ChicagoStyleCheesePizza();
+        else return null;
     }
 }
 
@@ -119,7 +126,12 @@ class PizzaTestDrive {
     public static void main(String[] args)
     {
         PizzaStore nyStore = new NYPizzaStore();
-        Pizza pizza = nyStore.orderPizza("cheese");
-        out.println("Ethan ordered a " + pizza.getName() + "\n");
+        Pizza nyPizza = nyStore.orderPizza("cheese");
+        out.println("Ethan ordered a " + nyPizza.getName() + "\n");
+
+        PizzaStore chicagoStore = new ChicagoPizzaStore();
+        Pizza chicagoPizza = chicagoStore.orderPizza("cheese");
+        out.println("Joel ordered a " + chicagoPizza.getName() + "\n");
+
     }
 }
