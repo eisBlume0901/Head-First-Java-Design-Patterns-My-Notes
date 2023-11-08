@@ -4,3 +4,14 @@ letting subclasses decide what objects create
 Encapsulation - does not equate using private keyword
 Encapsulation - protective shield that prevents the data
 from being accessed by the code outside this shield.
+
+Encapsulation
+1. Data Hiding - using private keyword to instance variables, for example,
+to prevent accidental modification
+2. Bundling Data and Behavior - bundling together the data (fields) and the
+behavior (methods) that operates into a single unit (the class) to make
+to code easier to understand and maintain because everything related to a
+certain piece of data is located in the same place.
+3. Controlled Access and Validation - providing public methods (getters, setters)
+and modify private fields,
+4. Separation of Concerns -
