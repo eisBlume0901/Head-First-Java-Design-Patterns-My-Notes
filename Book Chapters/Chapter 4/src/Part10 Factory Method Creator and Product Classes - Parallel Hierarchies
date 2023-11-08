@@ -1,0 +1,22 @@
+Factory method - encapsulates object creation by letting
+subclasses decide what objects to create
+
+Creator classes
+Abstract classes that declare the factory method which returns an object
+of the product class. It might also define a default implementation of
+the factory method, but subclasses can override this method to change the
+class of product that will be created (Only subclasses actually implement
+the factory method and create products). It is written without knowledge
+of actual products that will be created.
+Example: PizzaStore -> inherited by -> NYPizzaStore, ChicagoPizzaStore,
+CaliforniaPizzaStore
+
+Product classes
+Classes of objects that the factory method creates. It defines the interface,
+which is implemented by all products that the factory method creates.
+Example: Pizza -> inherited by -> NYStyleCheesePizza, ChicagoStyleCheesePizza
+
+Parallel Hierarchies
+Both creator and product classes has an abstract/interface class
+which its subclass can inherit from and override its abstract methods
+

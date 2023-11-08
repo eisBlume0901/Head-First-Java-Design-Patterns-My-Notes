@@ -17,4 +17,8 @@ when one object changes state, all of its dependents are notified and updated
 automatically. - Chapter 2
 
 3. DECORATOR pattern attaches additional responsibilities dynamically. Decorators
-provide a flexible alternative to subclassing for extending functionality.
+provide a flexible alternative to subclassing for extending functionality. - Chapter 3
+
+4. FACTORY METHOD pattern defines an interface for creating an object, but lets
+subclasses decide which class to instantiate. Factory Method lets a class defer
+instantiation to subclasses. - Chapter 4

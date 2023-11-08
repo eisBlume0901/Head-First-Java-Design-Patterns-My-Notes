@@ -88,6 +88,10 @@ class ChicagoStyleCheesePizza extends Pizza
 
 abstract class PizzaStore
 {
+    // String type can use parameter types, ENUMS, static constants
+    // to reduce runtime error
+    // Why? What if we type Cheese Pizza instead of Cheese
+    // It would cause more errors
     protected abstract Pizza createPizza(String type);
     public Pizza orderPizza(String type)
     {
