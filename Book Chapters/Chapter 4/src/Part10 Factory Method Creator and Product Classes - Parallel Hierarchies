@@ -1,5 +1,20 @@
 Factory method - encapsulates object creation by letting
-subclasses decide what objects to create
+subclasses decide what objects to create. Factory method
+integrates design pattern principles 1 - 1. Identify the
+aspects of your application that vary and separate them
+from what stays the same. - Chapter 1, Part2 and 2. Program
+to an interface, not an implementation - Chapter 1, Part3.
+
+How these 2 principles are integrated?
+We encapsulate the code for object creation through Simple Factory class
+(Simple Factory method is not equal to Factory method); however, this posed
+problems since there is also regional branches for Pizza Stores; thus,
+program to interface and not an implementation comes in. By creating
+abstract/interface classes we allow code flexibility and extensibility
+by letting its subclasses add more features and functionalities that
+are not declared from abstract/interface classes. Furthermore, we provide
+one place to perform maintenance which is the abstract/interface classes
+only not the subclasses that inherited them.
 
 Creator classes
 Abstract classes that declare the factory method which returns an object
