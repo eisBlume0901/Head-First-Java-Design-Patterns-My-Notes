@@ -1,5 +1,125 @@
 package Part15PizzaProblemAbstractFactoryMethod;
 
+import static java.lang.System.*;
+
+abstract class Pizza {
+    private String name;
+    private Dough dough;
+    private Sauce sauce;
+    private Cheese cheese;
+    private Veggies[] veggies;
+    private Pepperoni pepperoni;
+    private Clams clam;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Dough getDough() {
+        return dough;
+    }
+
+    public void setDough(Dough dough) {
+        this.dough = dough;
+    }
+
+    public Sauce getSauce() {
+        return sauce;
+    }
+
+    public void setSauce(Sauce sauce) {
+        this.sauce = sauce;
+    }
+
+    public Cheese getCheese() {
+        return cheese;
+    }
+
+    public void setCheese(Cheese cheese) {
+        this.cheese = cheese;
+    }
+
+    public Veggies[] getVeggies() {
+        return veggies;
+    }
+
+    public void setVeggies(Veggies[] veggies) {
+        this.veggies = veggies;
+    }
+
+    public Pepperoni getPepperoni() {
+        return pepperoni;
+    }
+
+    public void setPepperoni(Pepperoni pepperoni) {
+        this.pepperoni = pepperoni;
+    }
+
+    public Clams getClam() {
+        return clam;
+    }
+
+    public void setClam(Clams clam) {
+        this.clam = clam;
+    }
+
+    public abstract void prepare();
+
+    public void bake() {
+        out.println("Bake for 25 minutes at 350");
+    }
+
+    public void cut() {
+        out.println("Place pizza in official PizzaStore box");
+    }
+
+    public void box() {
+        out.println("Place pizza in official PizzaStore box");
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName();
+    }
+}
+
+class CheesePizza extends Pizza
+{
+    private PizzaIngredientFactory pizzaIngredientFactory;
+
+
+    public CheesePizza(PizzaIngredientFactory pizzaIngredientFactory)
+    {
+        this.pizzaIngredientFactory = pizzaIngredientFactory;
+    }
+    @Override
+    public void prepare() {
+        out.println("Preparing " + getName());
+        setDough(pizzaIngredientFactory.createDough());
+        setSauce(pizzaIngredientFactory.createSauce());
+        setCheese(pizzaIngredientFactory.createCheese());
+    }
+}
+
+class ClamPizza extends Pizza {
+
+    private PizzaIngredientFactory pizzaIngredientFactory;
+
+    public ClamPizza(PizzaIngredientFactory pizzaIngredientFactory)
+    {
+        this.pizzaIngredientFactory = pizzaIngredientFactory;
+    }
+    @Override
+    public void prepare() {
+        out.println("Preparing " + getName());
+        setDough(pizzaIngredientFactory.createDough());
+        setSauce(pi);
+    }
+}
 class Dough { }
 class Sauce { }
 class Cheese { }
