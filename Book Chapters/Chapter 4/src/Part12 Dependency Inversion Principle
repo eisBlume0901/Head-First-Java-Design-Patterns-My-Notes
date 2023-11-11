@@ -1,0 +1,21 @@
+Dependency Inversion Principle:
+Depend upon abstractions. Do not depend upon concrete classes
+High-level components should not depend on low-level components
+Guidelines:
+1. No variable should hold a reference to a concrete class
+ Do not use new (Instantiation) to avoid reference to a concrete class.
+ Use factory to get around that.
+2. No class should derive from a concrete class
+ Derive from an abstraction, like an interface or abstract class
+3. No method should override an implemented method of any of its base classes
+ Overriding the implemented methods is not an abstraction. The methods
+ implemented in the base class are meant to be shared by all of its subclasses
+
+ - Note this is just a guideline to strive for not a rule to follow all the time
+ or else we will never able to write a single program.
+
+Pizza Logic Problem:
+High-level - PizzaStore because its behavior is defined in terms of pizzas -
+creating different pizza objects, and prepares, bakes, cuts, and boxes them
+Low-level - Pizza
+
