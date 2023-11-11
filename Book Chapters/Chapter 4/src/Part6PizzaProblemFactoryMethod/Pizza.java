@@ -1,4 +1,4 @@
-package Part6PizzaFactoryMethod;
+package Part6PizzaProblemFactoryMethod;
 
 import java.util.*;
 import static java.lang.System.*;
@@ -86,7 +86,7 @@ class ChicagoStyleCheesePizza extends Pizza
     }
 }
 
-abstract class PizzaStore
+abstract class PizzaStore // Pizza Store still dependent to Pizza
 {
     // String type can use parameter types, ENUMS, static constants
     // to reduce runtime error

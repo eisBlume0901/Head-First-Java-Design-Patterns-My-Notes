@@ -1,1 +1,114 @@
-From Pizza
+From Pizza to Regional Pizza to Quality Ingredients
+
+Problem started from
+1. Pizza creation is in the same method for ordering pizza, to
+- tightly coupled, runtime error is expected because if the pizza chosen
+is not available or there are syntax error, it would not proceed to its
+succeeding codes
+2. Separating the creation of pizza to SimplePizzaFactory then
+encapsulated by the PizzaStore and the PizzaStore references Pizza
+(Simple Factory Method)
+- still tightly coupled, PizzaStore and Pizza is still highly dependent to
+SimplePizzaFactory
+3. Creating an interface (through abstract class) for Pizza and PizzaStore to
+let its regional US pizza franchise decide their own kind of pizza.
+- parallel hierarchy, PizzaStore is still dependent to Pizza (Factory Method)
+- What needs to improve? Regional US pizza franchises are following procedures
+(prepare, cut, box, etc.), not sharing the same quality ingredients (note:
+despite they do share the same ingredients it does not mean that they share
+the same recipe, each may vary depending what combinations they wanted - composition)
+4. Creating an interface (through interface) for PizzaIngredientFactory
+
+public interface PizzaIngredientFactory {
+    public Dough createDough();
+    public Sauce createSauce();
+    public Cheese createCheese();
+    public Veggies[] createVeggies();
+    public Pepperoni createPepperoni();
+    public Clams createClam();
+}
+
+What to do with the interface?
+1. Build a factory for each region by implementing the PizzaIngredientFactory to
+these subclasses
+2. Implement classes to be used with the factory (these are ingredients) which will
+be shared among regions
+3. Combine all the ingredients and store it to PizzaStore
+
+public class NYPizzaIngredientFactory implements PizzaIngredientFactory {
+
+    @Override
+    public Dough createDough() {
+        return new ThinCrustDough();
+    }
+
+    @Override
+    public Sauce createSauce() {
+        return new MarinaraSauce();
+    }
+
+    @Override
+    public Cheese createCheese() {
+        return new ReggianoCheese();
+    }
+
+    @Override
+    public Veggies[] createVeggies() {
+        Veggies veggies[] = {
+            new Garlic(),
+            new Onion(),
+            new Mushroom(),
+            new Red Pepper()
+            };
+        return veggies;
+    }
+
+    @Override
+    public Pepperoni createPepperoni() {
+        return new SlicedPepperoni();
+    }
+
+    @Override
+    public Clams createClam() {
+        return new FreshClams();
+    }
+}
+
+public class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory {
+
+    @Override
+    public Dough createDough() {
+        return new ThinCrustDough();
+    }
+
+    @Override
+    public Sauce createSauce() {
+        return new PlumTomatoSauce();
+    }
+
+    @Override
+    public Cheese createCheese() {
+        return new MozzarellaCheese();
+    }
+
+    @Override
+    public Veggies[] createVeggies() {
+        Veggies[] veggies = {
+            new BlackOlives(),
+            new Spinach(),
+            new EggPlant()
+            };
+        return veggies;
+    }
+
+    @Override
+    public Pepperoni createPepperoni() {
+        return new SlicedPepperoni();
+    }
+
+    @Override
+    public Clams createClam() {
+        return new FrozenClams();
+    }
+
+}
