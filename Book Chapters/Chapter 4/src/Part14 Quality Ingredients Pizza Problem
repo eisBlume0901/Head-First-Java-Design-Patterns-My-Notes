@@ -18,6 +18,8 @@ let its regional US pizza franchise decide their own kind of pizza.
 despite they do share the same ingredients it does not mean that they share
 the same recipe, each may vary depending what combinations they wanted - composition)
 4. Creating an interface (through interface) for PizzaIngredientFactory
+- PizzaIngredientFactory is still referenced to the Pizza and Pizza is dependent
+on it.
 
 public interface PizzaIngredientFactory {
     public Dough createDough();
@@ -35,80 +37,3 @@ these subclasses
 be shared among regions
 3. Combine all the ingredients and store it to PizzaStore
 
-public class NYPizzaIngredientFactory implements PizzaIngredientFactory {
-
-    @Override
-    public Dough createDough() {
-        return new ThinCrustDough();
-    }
-
-    @Override
-    public Sauce createSauce() {
-        return new MarinaraSauce();
-    }
-
-    @Override
-    public Cheese createCheese() {
-        return new ReggianoCheese();
-    }
-
-    @Override
-    public Veggies[] createVeggies() {
-        Veggies veggies[] = {
-            new Garlic(),
-            new Onion(),
-            new Mushroom(),
-            new Red Pepper()
-            };
-        return veggies;
-    }
-
-    @Override
-    public Pepperoni createPepperoni() {
-        return new SlicedPepperoni();
-    }
-
-    @Override
-    public Clams createClam() {
-        return new FreshClams();
-    }
-}
-
-public class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory {
-
-    @Override
-    public Dough createDough() {
-        return new ThinCrustDough();
-    }
-
-    @Override
-    public Sauce createSauce() {
-        return new PlumTomatoSauce();
-    }
-
-    @Override
-    public Cheese createCheese() {
-        return new MozzarellaCheese();
-    }
-
-    @Override
-    public Veggies[] createVeggies() {
-        Veggies[] veggies = {
-            new BlackOlives(),
-            new Spinach(),
-            new EggPlant()
-            };
-        return veggies;
-    }
-
-    @Override
-    public Pepperoni createPepperoni() {
-        return new SlicedPepperoni();
-    }
-
-    @Override
-    public Clams createClam() {
-        return new FrozenClams();
-    }
-
-}

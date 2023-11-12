@@ -74,7 +74,7 @@ abstract class Pizza {
     }
 
     public void cut() {
-        out.println("Place pizza in official PizzaStore box");
+        out.println("Cut pizza");
     }
 
     public void box() {
@@ -87,7 +87,7 @@ abstract class Pizza {
     }
 }
 
-class CheesePizza extends Pizza
+class CheesePizza extends Pizza // This Cheese Pizza will be subclassed by each regional US franchise
 {
     private PizzaIngredientFactory pizzaIngredientFactory;
 
@@ -99,9 +99,18 @@ class CheesePizza extends Pizza
     @Override
     public void prepare() {
         out.println("Preparing " + getName());
+        out.println("Ingredients to be used: ");
         setDough(pizzaIngredientFactory.createDough());
+        out.println(getDough().toString());
+        /*
+        Pizza code uses the factory it has been composed with to produce
+        the ingredients used in the pizza. The ingredients depend on which factory
+        we are using. Pizza class does not care; it knows how to make pizzas.
+         */
         setSauce(pizzaIngredientFactory.createSauce());
+        out.println(getSauce().toString());
         setCheese(pizzaIngredientFactory.createCheese());
+        out.println(getCheese().toString());
     }
 }
 
@@ -117,7 +126,9 @@ class ClamPizza extends Pizza {
     public void prepare() {
         out.println("Preparing " + getName());
         setDough(pizzaIngredientFactory.createDough());
-        setSauce(pi);
+        setSauce(pizzaIngredientFactory.createSauce());
+        setCheese(pizzaIngredientFactory.createCheese());
+        setClam(pizzaIngredientFactory.createClam());
     }
 }
 class Dough { }
@@ -136,15 +147,51 @@ public interface PizzaIngredientFactory {
     public Clams createClam();
 }
 
-class ThinCrustDough extends Dough{ }
-class MarinaraSauce extends Sauce{ }
-class ReggianoCheese extends Cheese{ }
+class ThinCrustDough extends Dough{
+
+    private String name;
+
+    public ThinCrustDough() {
+        name = "Thin Crust Dough";
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+class MarinaraSauce extends Sauce{
+    private String name;
+
+    public MarinaraSauce()
+    {
+        name = "Marinara Sauce";
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+class ReggianoCheese extends Cheese{
+
+    private String name;
+
+    public ReggianoCheese()
+    {
+        name = "Reggiano Cheese";
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
 class Garlic extends Veggies{ }
 class Onion extends Veggies{ }
 class Mushroom extends Veggies{ }
 class RedPepper extends Veggies{ }
 class FreshClams extends Clams { }
-
 class SlicedPepperoni extends Pepperoni { }
 
 class NYPizzaIngredientFactory implements PizzaIngredientFactory {
@@ -228,5 +275,84 @@ class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory {
     public Clams createClam() {
         return new FrozenClams();
     }
+}
 
+abstract class PizzaStore {
+
+    protected abstract Pizza createPizza(String type);
+
+    public Pizza orderPizza(String type)
+    {
+        Pizza pizza;
+
+        pizza = createPizza(type);
+
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+
+        return pizza;
+    }
+}
+
+class NYPizzastore extends PizzaStore {
+    @Override
+    protected Pizza createPizza(String type) {
+        Pizza pizza = null;
+        PizzaIngredientFactory ingredientFactory =
+                new NYPizzaIngredientFactory();
+
+        if (type.equals("cheese"))
+        {
+            pizza = new CheesePizza(ingredientFactory);
+            pizza.setName("New York Style Cheese Pizza");
+        }
+        else if (type.equals("clam"))
+        {
+            pizza = new ClamPizza(ingredientFactory);
+            pizza.setName("New York Style Clam Pizza");
+        }
+        return pizza;
+    }
+
+    @Override
+    public Pizza orderPizza(String type) {
+        return super.orderPizza(type);
+    }
+}
+
+class ChicagoPizzaStore extends PizzaStore {
+
+    @Override
+    protected Pizza createPizza(String type) {
+        Pizza pizza = null;
+        PizzaIngredientFactory pizzaIngredientFactory = new ChicagoPizzaIngredientFactory();
+
+        if (type.equals("cheese"))
+        {
+            pizza = new CheesePizza(pizzaIngredientFactory);
+            pizza.setName("Chicago Style Cheese Pizza");
+        }
+        else if (type.equals("clam"))
+        {
+            pizza = new ClamPizza(pizzaIngredientFactory);
+            pizza.setName("Chicago Style Clam Pizza");
+        }
+        return pizza;
+    }
+
+    @Override
+    public Pizza orderPizza(String type) {
+        return super.orderPizza(type);
+    }
+}
+
+class PizzaTestDrive {
+
+    public static void main(String[] args)
+    {
+        PizzaStore nyStore = new NYPizzastore();
+        Pizza nyCheesePizza = nyStore.orderPizza("cheese");
+    }
 }
