@@ -354,5 +354,8 @@ class PizzaTestDrive {
     {
         PizzaStore nyStore = new NYPizzastore();
         Pizza nyCheesePizza = nyStore.orderPizza("cheese");
+
+        PizzaStore chicagoStore = new ChicagoPizzaStore();
+        Pizza chicagoCheesePizza = chicagoStore.orderPizza("cheese");
     }
 }
