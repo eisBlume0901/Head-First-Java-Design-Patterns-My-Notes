@@ -21,6 +21,7 @@ the same recipe, each may vary depending what combinations they wanted - composi
 - PizzaIngredientFactory is still referenced to the Pizza and Pizza is dependent
 on it.
 
+Suggested solution:
 public interface PizzaIngredientFactory {
     public Dough createDough();
     public Sauce createSauce();

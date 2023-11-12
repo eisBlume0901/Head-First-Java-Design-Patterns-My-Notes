@@ -1,0 +1,13 @@
+createPizza();
+
+Factory Method:
+Problem: Ingredients can be shared among other regional US franchise. Furthermore,
+it would assure that the ingredients they get have the high quality. In relation to
+programming, if all regional US franchise would share the same ingredients, then it
+is easier to maintain, modify, and even extend. All different types of pizza share
+the same set of ingredient they just differ in what type of cheese, sauce, and dough,
+and other additional add-ons such as veggies, or if it has meat like pepperoni and
+clams.
+
+Abstract Method:
+Solution:

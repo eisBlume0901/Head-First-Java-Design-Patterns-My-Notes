@@ -23,4 +23,7 @@ provide a flexible alternative to subclassing for extending functionality. - Cha
 
 4. FACTORY METHOD pattern defines an interface for creating an object, but lets
 subclasses decide which class to instantiate. Factory Method lets a class defer
-instantiation to subclasses. - Chapter 4
+instantiation to subclasses. - Chapter 4, Part10
+
+5. ABSTRACT FACTORY pattern provides an interface for creating families of related
+or dependent objects without specifying their concrete classes - Chapter 4, Part17
